@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: rgb(224, 184, 230);
+    background-color: rgb(223, 230, 184);
     font-family: 'boogaloo';
     font-size: 25px;
     
@@ -19,10 +19,10 @@
 }
 
 .subheader {
-    background-color: #ec46d6;
+    background-color: #46ec6a;
     font-size: 40px;
     text-align: center;
-    color: #fc24cd;
+    color: #24fc36;
     padding: 4px 0px;
 
 }
@@ -31,7 +31,7 @@
 h1 {
     justify-content: center;
     font-weight: bold;
-    color: rgb(59, 7, 247);
+    color: rgb(247, 123, 7);
     text-align: center;
     display: flex;
     font-size: 40px;
@@ -71,11 +71,11 @@ h1 {
     justify-content: center;
 }
 #btn0, #btn1, #btn2, #btn3 {
-    background-color: #e4ade9;
+    background-color: #9c3b48;
     width: 250px;
     font-size: 20px;
     color: #fff;
-    border: 1px solid #1D3C6A;
+    border: 1px solid #041f47;
     margin: 10px 40px 10px 0px;
     padding: 10px 10px;  
     flex: 0 1 250px;
