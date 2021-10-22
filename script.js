@@ -110,11 +110,11 @@ function showScores() {
 };
  
 var questions = [
-    new Question("Do you know the muffin man?", ["the coyote?", "Shrek?","Fiona?", "Yes, I know the Muffin Man. W-who lives on Drury Lane?"], "Yes, I know the Muffin Man. W-who lives on Drury Lane?"),
-    new Question("Bella, where have you been....?", ["Girl", "Lady", "Loca", "Loser"], "Loca"),
-    new Question("Slow dancing in a .....", ["Ballroom", "Castle","Car", "Burning room"], "Burning room"),
-    new Question("Caught a vibe...?", ["Baby, are you coming for the ride?", "and then I died", "And flew away", " and shrunk"], "Baby, are you coming for the ride?"),
-    new Question("Who is the daughter of Will Smith?", ["Jayden", "wilma", "Willow", "Jessica"], "Willow")
+    new Question("Where in the world is Carmen Sandiego?", ["Tempe, AZ?", "Africa?","The U.K.?", "Sandiego?"], "Sandiego?"),
+    new Question("Which name is one of the ninja turtles?", ["Michelle", "Leonardo", "Donna", "Orlando"], "Leonardo"),
+    new Question("Sombody toucha my...?", ["Spaget", "LasagnE","Kiwi", "Ford F150"], "Spaget"),
+    new Question("Who is the current Spider-Man?", ["Andrew Garfunkle", "Toby Macaronie", "Tom Hiddleston", "Tom Holland"], "Tom Holland"),
+    new Question("Where is East Virginia", ["What", "Where", "Who", "When"], "What")
 ];
  
 
