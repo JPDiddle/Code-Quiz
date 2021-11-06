@@ -1,124 +1,106 @@
-var timeEl = document.querySelector(".time");
-var SubEl = document.getElementById("subheader");
+var highScoresCounter = counterTimer;
+var startTime = 75;
+var counterTimer;
+var timer = document.getElementById("timer");
+var btnStart = document.getElementsByClassName("btn-start")[0];
+var h1 = document.getElementById("h1");
+var instructions = document.getElementById("instructions");
 
-var secondsLeft = 25;
-
-var secondsLeft = 25;
-
-function setTime() {
-  
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left!!! HURRY IT UP!";
-
-    if(secondsLeft === 0) {
-      
-      clearInterval(timerInterval);
-      
-      sendMessage();
-    }
-
-  }, 1000);
+document.getElementById("timer").innerHTML = startTime;
+function init() {
+  highScores();
 }
-
-
-function sendMessage() {
-    timeEl.textContent = " ";
-    
-  
-  }
-  
-  setTime();
-
-
-function Quiz(questions) {
-    this.score = 0;
-    this.questions = questions;
-    this.questionIndex = 0;
-}
- 
-Quiz.prototype.getQuestionIndex = function() {
-    return this.questions[this.questionIndex];
-}
- 
-Quiz.prototype.guess = function(answer) {
-    if(this.getQuestionIndex().isCorrectAnswer(answer)) {
-        this.score++;
-    }
- 
-    this.questionIndex++;
-}
- 
-Quiz.prototype.isEnded = function() {
-    return this.questionIndex === this.questions.length;
-}
- 
- 
-function Question(text, choices, answer) {
-    this.text = text;
-    this.choices = choices;
-    this.answer = answer;
-}
- 
-Question.prototype.isCorrectAnswer = function(choice) {
-    return this.answer === choice;
-}
- 
- 
-function populate() {
-    if(quiz.isEnded()) {
-        showScores();
-    }
-    else {
-        
-        var element = document.getElementById("question-cont");
-        element.innerHTML = quiz.getQuestionIndex().text;
- 
-       
-        var choices = quiz.getQuestionIndex().choices;
-        for(var i = 0; i < choices.length; i++) {
-            var element = document.getElementById("choice" + i);
-            element.innerHTML = choices[i];
-            guess("btn" + i, choices[i]);
-        }
- 
-        showProgress();
-    }
-};
- 
-function guess(id, guess) {
-    var button = document.getElementById(id);
-    button.onclick = function() {
-        quiz.guess(guess);
-        populate();
-    }
-};
- 
- 
-function showProgress() {
-    var currentQuestionNumber = quiz.questionIndex + 1;
-    var element = document.getElementById("count");
-    element.innerHTML = "Question " + currentQuestionNumber + " of " + quiz.questions.length;
-};
- 
-e
-function showScores() {
-    var gameOverHTML = "<h1>Result</h1>";
-    gameOverHTML += "<h3 id='score'> Your scores: " + quiz.score + "</h3>";
-    var element = document.getElementById("quiz");
-    element.innerHTML = gameOverHTML;
-};
- 
-var questions = [
-    new Question("Where in the world is Carmen Sandiego?", ["Tempe, AZ?", "Africa?","The U.K.?", "Sandiego?"], "Sandiego?"),
-    new Question("Which name is one of the ninja turtles?", ["Michelle", "Leonardo", "Donna", "Orlando"], "Leonardo"),
-    new Question("Sombody toucha my...?", ["Spaget", "LasagnE","Kiwi", "Ford F150"], "Spaget"),
-    new Question("Who is the current Spider-Man?", ["Andrew Garfunkle", "Toby Macaronie", "Tom Hiddleston", "Tom Holland"], "Tom Holland"),
-    new Question("Where is East Virginia", ["What", "Where", "Who", "When"], "What")
+btnStart.addEventListener("click", function () {
+  h1.innerText = "Question:";
+  instructions.remove();
+  counterTimer = setInterval(myTimer, 1000);
+  btnStart.remove();
+});
+var questionsData = [
+  {
+    textOfQuestion: "Who is the Terminator?",
+    options: ["Arnold Schwarzenegger ", "Sylvester Stallone", "RoboCop", "Andrew Yang"],
+    correctIndex: 0,
+  },
+  {
+    textOfQuestion: "What Ninja Turtle has nunchucks?",
+    options: [
+      "ALFONZO",
+      "DONNIE",
+      "LEO",
+      "MIKEY",
+    ],
+    correctIndex: 3,
+  },
+  {
+    textOfQuestion:
+      "Who is Luke's Father?",
+    options: ["Chewie", "Vader", "Count DOoku", "Maul"],
+    correctIndex: 1,
+  },
 ];
- 
+const questionsDisplayed = document.querySelector("#questions");
+const optionsDisplayed = document.querySelector("#options");
+let answerIndex = 0;
+btnStart.addEventListener("click", function () {
+  h1.innerText = "Question:";
+  instructions.remove();
+  btnStart.remove();
+  renderQuestion();
+});
 
-var quiz = new Quiz(questions);
- 
-
-populate();
+optionsDisplayed.addEventListener("click", function (e) {
+  const element = e.target;
+  const question = questionsData[answerIndex];
+  if (!element.matches("button")) return;
+  if (element.textContent === question.options[question.correctIndex]) {
+    alert("SHOOT! YOU GOT IT!");
+    startTime = startTime + 15;
+  } else {
+    alert("WRONG!");
+    startTime = startTime - 15;
+  }
+  answerIndex++;
+  if (answerIndex == questionsData.length) {
+    endGame();
+  }
+  renderQuestion();
+});
+function renderQuestion() {
+  const question = questionsData[answerIndex];
+  questionsDisplayed.textContent = question.textOfQuestion;
+  optionsDisplayed.innerHTML = "";
+  for (let i = 0; i < question.options.length; i++) {
+    const option = question.options[i];
+    const button = document.createElement("button");
+    button.textContent = option;
+    optionsDisplayed.append(button);
+  }
+}
+function endGame() {
+  questionsDisplayed.remove();
+  optionsDisplayed.remove();
+  alert(`FiNished!`);
+  myStopFunction();
+  h1.innerText = "High Scores:";
+}
+function myTimer() {
+  startTime = startTime - 1;
+  document.getElementById("timer").innerHTML = startTime;
+  if (startTime === 0) {
+    alert(`YE lost yer HEAD`);
+    myStopFunction();
+  }
+}
+function myStopFunction() {
+  clearInterval(counterTimer);
+}
+function highScores() {
+  var storedHighScores = localStorage.getElementById("highscores")
+  if (storedHighScores === null) {
+    highScoresCounter = 0;
+  } else {
+    highScoresCounter = storedHighScores;
+  }
+  win.textContent = "high scores";
+}

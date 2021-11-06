@@ -1,91 +1,14 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(223, 230, 184);
-    font-family: 'boogaloo';
-    font-size: 25px;
-    
-}
-
-.header {
-    list-style: none;
-    display: inline-flex;
-    align-items: center;
-    list-style-type: none;
-    font-size: 35px;
-    
-    
-}
-
-.subheader {
-    background-color: #46ec6a;
-    font-size: 40px;
+#timer,.timer{
+    float:right;
+    padding-right: 75px;
+    }   
+    h1,h2,p, .questions{
     text-align: center;
-    color: #24fc36;
-    padding: 4px 0px;
-
-}
-
-
-h1 {
+    }
+    h1{
+    padding-top: 75px;
+    }
+    .btn-start{
+    display: flex ;
     justify-content: center;
-    font-weight: bold;
-    color: rgb(247, 123, 7);
-    text-align: center;
-    display: flex;
-    font-size: 40px;
-    width: auto;
-    
-    
-    
-}
-
-.container {
-    width: auto;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-#questions {
-    font-size: 10px;
-}
-
-#answers {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    
-}
-.btnflex {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: auto;
-    justify-content: center;
-}
-#btn0, #btn1, #btn2, #btn3 {
-    background-color: #9c3b48;
-    width: 250px;
-    font-size: 20px;
-    color: #fff;
-    border: 1px solid #041f47;
-    margin: 10px 40px 10px 0px;
-    padding: 10px 10px;  
-    flex: 0 1 250px;
-   
-}
-
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
-    cursor: pointer
-}
-
-#count {
-    font-size: 25px;
-}
+    }

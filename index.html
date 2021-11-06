@@ -1,46 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
-    <title>Nonsense Quiz</title>
-</head>
+    <title>Coding Quiz</title>
+  </head>
 <body>
-    <header class="header">
-        <nav>
-            <ul>
-            <li>
-                <a href="#">Highscores</a>
-            </li>
-        </ul>
-        </nav>
-    </header>
-    <div class="subheader">
-        <h1>BEWARE: Wack Quiz Ahead</h1>
-        <h2 class="time" style="text-align: center;"></h2>
+ <header id="highscores">
+  <a href="#">High Scores</a>
+   <p class= "timer">Timer</p><p id="timer"></p>
+ </header>
+<h1 id="h1">Coding Quiz</h1>
+<h2 id="questions"></h2>
+<p id="options"></p>
+<p id="instructions">
+Here are my questions three<br />
+Answer them quick or youll be comprable to SMEE<br />
+If pop-culture be the way you skew, have a go around and take victory for YOU!</p>
 
-    </div>
-    <div class="container">
-        <div id="question-cont" class="hide"></div>
-            <p id="question"></p>
-        <div id="answers"class="btnflex">
-            <button id="btn0"><span id="choice0"></span></button>
-            <button id="btn1"><span id="choice1"></span></button>
-            <button id="btn2"><span id="choice2"></span></button>
-            <button id="btn3"><span id="choice3"></span></button>
-        </div>
-    </div>
-    <footer>
-        <p id="count">Question x of y</p>
-    </footer>
-
-    </div>
+ <div class="btn-start" id="btn-area"><button>Start!</button>
+</div>
 <script src="script.js"></script>
 </body>
-
-
-
 </html>
